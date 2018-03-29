@@ -1,0 +1,11 @@
+local CC = require "CC"
+
+function Awake()
+	print(CC)
+	CC.Print(kCube)
+	CC.Print(CC.Table:ToString{a = 1,b = 3})
+end
+
+function Update()
+	kCube.transform:Rotate(CS.UnityEngine.Vector3.up * CS.UnityEngine.Time.deltaTime * 100)
+end
