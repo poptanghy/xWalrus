@@ -67,6 +67,9 @@ public static class ExampleGenConfig
     #if UNITY_WEBGL
                 new List<string>(){"UnityEngine.WWW", "threadPriority"},
     #endif
+    #if UNITY_ANDROID
+                new List<string>(){ "UnityEngine.WWW", "GetMovieTexture"},//2017.3.1 not support 
+    #endif    
                 new List<string>(){"UnityEngine.Texture2D", "alphaIsTransparency"},
                 new List<string>(){"UnityEngine.Security", "GetChainOfTrustValue"},
                 new List<string>(){"UnityEngine.CanvasRenderer", "onRequestRebuild"},
@@ -85,6 +88,6 @@ public static class ExampleGenConfig
                 new List<string>(){"System.IO.DirectoryInfo", "Create", "System.Security.AccessControl.DirectorySecurity"},
                 new List<string>(){"UnityEngine.MonoBehaviour", "runInEditMode"},
 
-                new List<string>(){ "UnityEngine.Light", "lightmapBakeType"},//2017.3.1 not support         
+                new List<string>(){ "UnityEngine.Light", "lightmapBakeType"},//2017.3.1 not support 
             };
 }
