@@ -5,7 +5,6 @@ using UnityEngine;
 using XLua;
 namespace CCS
 {
-
     public class Main : MonoBehaviour
     {
 
@@ -42,6 +41,7 @@ namespace CCS
             });
 #endif
             skLuaEnv.DoString("require 'main'");
+            //Net.SendWeb("a", "B");
         }
 
         // Update is called once per frame

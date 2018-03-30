@@ -1,22 +1,26 @@
 require ("mobdebug").start()
 
-local CC = require("CC")
+CC = require("CC")
+local CCUnity = require("CCUnity")
+
 function main()
 	CC.Print("Lua engine start")
 
-    _G.collectgarbage("setpause", 100)
-    _G.collectgarbage("setstepmul", 5000)
-	_G.math.randomseed(_G.os.time())
+    collectgarbage("setpause", 100)
+    collectgarbage("setstepmul", 5000)
+	math.randomseed(os.time())
 	
 	-- Append CCUnity to CC
-	--[[for k,v in _G.pairs(CCUnity) do
+	for k,v in pairs(CCUnity) do
 		CC.Assert(CC[k] == nil, "LuaMain:Run CCUnity init error ["..CC.ToString(v).."]")
 		CC[k] = v
-	end]]
+	end
+
+	CC:SendWeb()
 end
 
-_G.xpcall(main, function(kMsg)
-    local kMsg = _G.debug.traceback(kMsg, 3)
-    _G.print(kMsg)
+xpcall(main, function(kMsg)
+    local kMsg = debug.traceback(kMsg, 3)
+    print(kMsg)
     return kMsg
 end)

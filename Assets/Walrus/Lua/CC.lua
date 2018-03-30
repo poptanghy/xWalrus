@@ -1,4 +1,5 @@
-local CC = {}
+local Json = require "json"
+
 ----------------------------------------------------------------
 -- Menu
 ----------------------------------------------------------------
@@ -6,9 +7,7 @@ local CC = {}
 -- Table
 
 ----------------------------------------------------------------
-
-
-
+local CC = {}
 -- Functions
 ----------------------------------------------------------------
 CC.ToString = tostring
@@ -252,6 +251,15 @@ function Table:Inverse(tVal)
         end
         return tTemp
     end
+end
+
+local LC_Json = {}
+CC.Json = LC_Json
+function LC_Json:Encode(kTemp)
+    return Json.encode(kTemp)
+end
+function LC_Json:Decode(kTemp)
+    return Json.decode(kTemp)
 end
 
 return CC
